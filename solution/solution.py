@@ -26,7 +26,6 @@ def is_possible(row, col, n, grid):
             return False
 
     # validate that n not appeared yet on box
-
     # define start coordinate of box in 9x9 grid
     box_row = (row // 3) * 3
     box_col = (col // 3) * 3
@@ -39,6 +38,22 @@ def is_possible(row, col, n, grid):
     return True
 
 
+def solution(grid):
+    for row in range(9):
+        for col in range(9):
+            if grid[row][col] == 0:
+                for n in range(1, 10):
+                    if is_possible(row, col, n, grid):
+                        grid[row][col] = n
+                        solution(grid)
+                        grid[row][col] = 0
+                return
+
+    print(grid[0][0] + grid[0][1] + grid[0][2])
+
+
 if __name__ == '__main__':
-    grid = retrieve_grid()
-    print(grid)
+    sudoku_grids = retrieve_grid()
+
+    for grid in sudoku_grids:
+        solution(grid)
