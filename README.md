@@ -83,11 +83,24 @@ This repo already contains the configuration file for ESLint.
 
 #### Python
 
-This repo does not contains any configuration file for Python linting.
+I use pylint for python linting.
+
+## How to run it
+- From your terminal change your active directory into this application root folder.
+- Setting up virtual environment on your local. This code tested on python 3.8.5, so it would be better if you use same python version.
+- Install all dependencies by run `pip install -r requirements.txt` from your terminal.
+- Run `python -m pytest` to run unit test.
+- Run `python solution/solution.py` to run the code, and you will get all puzzle's solutions printed on your terminal.
+
+
+## Solution
+To solve this problems I'm using backtracking algorithm. So I search node that have zero value than fill it with number that sill not appeared yet on its row, column, and 3x3 box. Then I repeat this process, and if I found situation when I cannot find number to fill in specified node, so it means we choose wrong number somewhere when we fill the nodes then I backtracking and update all updated nodes change back to zero. Then I choose another number and repeat until I succeed to fill all nodes.
+
 
 ## Authors
 
 * **Linnovs** - *Initial work* - [linnovs](https://github.com/linnovs)
+* **Mukhammad Ginanjar Azie** - *add sudoku solution* - [azie-ginanjar](https://github.com/azie-ginanjar)
 
 [forkFromGithub]:https://github.com/en-trak/backend-pre-interview/fork
 [createAccount]:https://github.com/join
